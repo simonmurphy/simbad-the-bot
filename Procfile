@@ -1,1 +1,1 @@
-web: python simbad_the_bot.py
+worker: python simbad_the_bot.py
