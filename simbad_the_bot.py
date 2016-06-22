@@ -9,6 +9,7 @@ import glob
 import images2gif
 from urllib import urlencode
 import tweepy
+from random import randint,random
 
 CONSUMER_KEY = '2iPGotHAeRq3tGXu0SakqhKaD'
 CONSUMER_SECRET = 'VYiic0oDbh2W7xc0BVWM6MAeruMuXMZz7gIVZ6Nh2LaeW7hrSZ'
@@ -48,18 +49,18 @@ def get_random_object(max_star_fraction=0.2):
 	biasing against boring-looking stars.
 	Returns a human-readable txt string and object RA/DEC.
 	"""
-	coo = coord.SkyCoord(rand()*360,rand()*180-90,unit=(u.deg,u.deg))
+	coo = coord.SkyCoord(random()*360,random()*180-90,unit=(u.deg,u.deg))
 	results = customSimbad.query_region(coo,radius=0.5*u.deg)
 	for res in results:
 		obj_name = ' '.join(res['MAIN_ID'].split())
 		obj_type = res['OTYPE_V']
-		if 'star' in obj_type.lower() and rand() > max_star_fraction:
+		if 'star' in obj_type.lower() and random() > max_star_fraction:
 			continue
 		a_an = 'an' if obj_type[0].upper() in ('X','A','E','I','O','U') else 'a'
 		obj_coo = coord.SkyCoord(res['RA_d'],res['DEC_d'],unit=(u.deg,u.deg))
 		constellation = coord.get_constellation(obj_coo)
 		params = {'Ident':obj_name}
-		greeting = greetings[int(len(greetings)*rand())]
+		greeting = greetings[randint(0,len(greetings)-1)]
 		txt_str =  greeting + " %s is %s %s in the constellation %s. More: %s%s" % \
 		(obj_name,a_an,obj_type,constellation,more_url,urlencode(params))
 		
