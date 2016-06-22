@@ -1,0 +1,7 @@
+astroquery==0.3.1
+astropy==1.2.1
+aplpy==1.0
+requests==2.10.0
+PIL==1.1.7
+tweepy==3.5.0
+
