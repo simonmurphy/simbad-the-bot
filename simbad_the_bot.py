@@ -118,6 +118,7 @@ if __name__ == '__main__':
 
 	# Heroku Scheduler runs every hour, so first
 	# check if this is the right hour to run
+	print datetime.today().hour,when_to_run
 	if datetime.today().hour not in when_to_run:
 		sys.exit(0)
 
