@@ -13,8 +13,8 @@ import tweepy
 from astroquery.simbad import Simbad
 from PIL import Image,ImageFont,ImageDraw
 
-# Run on average twice a day at somewhat random times
-when_to_run = [randint(3,12),randint(15,23)] 
+# Run at somewhat random times
+when_to_run = [randint(0,23),randint(0,23),randint(0,23)] 
 
 pixel_size = 500,500 # px
 image_size = 0.1,0.1 # deg
