@@ -14,7 +14,7 @@ from astroquery.simbad import Simbad
 from PIL import Image,ImageFont,ImageDraw
 
 # Run at somewhat random times
-when_to_run = [randint(0,23),randint(0,23),randint(0,23)] 
+when_to_run = [randint(0,23),randint(0,23),randint(0,23),randint(0,23)] 
 
 pixel_size = 500,500 # px
 image_size = 0.1,0.1 # deg
