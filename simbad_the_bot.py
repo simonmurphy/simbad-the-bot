@@ -13,8 +13,8 @@ import tweepy
 from astroquery.simbad import Simbad
 from PIL import Image,ImageFont,ImageDraw
 
-# Run at somewhat random times
-when_to_run = [randint(0,23),randint(0,23),randint(0,23),randint(0,23)] 
+# Run a few times a day
+when_to_run = [0, 8, 16] 
 
 pixel_size = 500,500 # px
 image_size = 0.1,0.1 # deg
@@ -152,10 +152,12 @@ if __name__ == '__main__':
 		create_animation(images,obj_name)
 		# Send the tweet!
 		api.update_with_media('animation.gif',txt_str)	
-		sys.exit(0)
+		print "Tweet sent."
+		os._exit(0)
 	except:
 		# Die quietly and hope for better luck next time...
-		sys.exit(0)	
+		print "Something went wrong."
+		raise
 
 
 
