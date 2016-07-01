@@ -14,7 +14,7 @@ from astroquery.simbad import Simbad
 from PIL import Image,ImageFont,ImageDraw
 
 # Run a few times a day
-when_to_run = [0, 5, 8, 16] 
+when_to_run = [0, 6, 8, 16] 
 
 pixel_size = 500,500 # px
 image_size = 0.1,0.1 # deg
@@ -141,7 +141,7 @@ if __name__ == '__main__':
 		obj_name,txt_str,ra,dec = get_random_object(max_star_fraction=0.1)
 		print txt_str
 		print "RA,Dec:",ra,dec
-		for survey in sort(bands.keys()):
+		for survey in sorted(bands.keys()):
 			try:
 				# APLPy will choke on empty FITS files
 				# from SkyView. Just skip them!
